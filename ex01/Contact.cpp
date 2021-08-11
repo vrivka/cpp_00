@@ -7,26 +7,36 @@ void Contact::setID(size_t id) {
 void Contact::setFirstName() {
 	std::cout << "Please input first name: \n";
 	std::getline(std::cin, this->FirstName, '\n');
+	if (std::cin.eof())
+		exit(0);
 }
 
 void  Contact::setLastName() {
 	std::cout << "Please input last name: \n";
 	std::getline(std::cin, this->LastName, '\n');
+	if (std::cin.eof())
+		exit(0);
 }
 
 void  Contact::setNickName() {
 	std::cout << "Please input nick name: \n";
 	std::getline(std::cin, this->NickName, '\n');
+	if (std::cin.eof())
+		exit(0);
 }
 
 void  Contact::setPhoneNumber() {
 	std::cout << "Please input phone number: \n";
 	std::getline(std::cin, this->PhoneNumber, '\n');
+	if (std::cin.eof())
+		exit(0);
 }
 
 void  Contact::setDarkestSecret() {
 	std::cout << "Please input darkest secret: \n";
 	std::getline(std::cin, this->DarkestSecret, '\n');
+	if (std::cin.eof())
+		exit(0);
 }
 
 void Contact::setAll(){
@@ -61,19 +71,4 @@ std::string  Contact::getDarkestSecret() {
 	return (this->DarkestSecret);
 }
 
-Contact::Contact() {
-	this->ID = 0;
-	this->FirstName.clear();
-	this->LastName.clear();
-	this->NickName.clear();
-	this->PhoneNumber.clear();
-	this->DarkestSecret.clear();
-}
-
-Contact::~Contact() {
-	this->FirstName.clear();
-	this->LastName.clear();
-	this->NickName.clear();
-	this->PhoneNumber.clear();
-	this->DarkestSecret.clear();
-}
+Contact::Contact() : ID(0), FirstName("none"), LastName("none"), NickName("none"), PhoneNumber("none"), DarkestSecret("none") {}

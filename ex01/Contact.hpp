@@ -9,14 +9,18 @@
 class Contact {
 private:
 	size_t ID;
-	std::string FirstName, LastName, NickName, PhoneNumber, DarkestSecret;
-public:
-	void setID(size_t);
+	std::string FirstName;
+	std::string LastName;
+	std::string NickName;
+	std::string PhoneNumber;
+	std::string DarkestSecret;
 	void setFirstName();
 	void setLastName();
 	void setNickName();
 	void setPhoneNumber();
 	void setDarkestSecret();
+public:
+	void setID( size_t );
 	void setAll();
 	size_t getID();
 	std::string getFirstName();
@@ -25,7 +29,6 @@ public:
 	std::string getPhoneNumber();
 	std::string getDarkestSecret();
 	Contact();
-	~Contact();
 };
 
 

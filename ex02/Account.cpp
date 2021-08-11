@@ -22,7 +22,14 @@ int Account::checkAmount() const {
 }
 
 void Account::_displayTimestamp() {
-	std::cout << "[19920104_091532]";
+	time_t rawtime;
+	struct tm *timeinfo;
+	char buf[18];
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	strftime (buf, 18, "[%Y%m%d_%H%M%S]", timeinfo);
+	std::cout << buf;
 }
 
 void Account::displayAccountsInfos() {
