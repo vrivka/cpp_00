@@ -25,6 +25,15 @@ static void printID(size_t id) {
 }
 
 void PhoneBook::printshortContactData() {
+	int n = 0;
+
+	for (int i = 0; i < 8; i++)
+		if (this->ContactData[i].getID() == 0)
+			n++;
+	if (n == 8) {
+		std::cout << "Phone book is empty\n";
+		return ;
+	}
 	std::cout << "/----------|----------|----------|----------\\\n";
 	std::cout << "|\x1b[32m";
 	std::cout << std::setw(10) << "<ID>" << "\x1b[0m|";
@@ -32,7 +41,7 @@ void PhoneBook::printshortContactData() {
 	std::cout << std::setw(10)<< "Last Name" << '|';
 	std::cout << std::setw(10)<< "Nick Name" << '|' << std::endl;
 	for (int i = 0; i < 8; i++) {
-		if (this->ContactData[i].getID() != 0){
+		if (this->ContactData[i].getID() != 0) {
 			std::cout << "|";
 			printID(this->ContactData[i].getID());
 			std::cout << "|";
@@ -46,6 +55,18 @@ void PhoneBook::printshortContactData() {
 		}
 	}
 	std::cout << "\\----------|----------|----------|----------/\n";
+	this->printfullContactData();
+}
+
+static int check_it_nums(char const *str)
+{
+	for (size_t i = 0; i < strlen(str); i++) {
+		if (!isdigit(str[i]))
+			return 1;
+	}
+	if (!(*str))
+		return 1;
+	return 0;
 }
 
 void PhoneBook::printfullContactData() {
@@ -56,6 +77,10 @@ void PhoneBook::printfullContactData() {
 	std::getline(std::cin, str, '\n');
 	if (std::cin.eof())
 		exit(0);
+	if (check_it_nums(str.c_str())) {
+		std::cout << "Incorrect \x1b[32mID\x1b[0m\n";
+		return ;
+	}
 	id = std::atoi(str.c_str());
 	if (!id) {
 		std::cout << "Contact with \x1b[32mID\x1b[0m: <" << id << "> not found" << std::endl;

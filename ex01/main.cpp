@@ -34,7 +34,7 @@ int main()
 			phoneBook.setContactData();
 		else if (cmd == "SEARCH" || cmd == "search") {
 			phoneBook.printshortContactData();
-			phoneBook.printfullContactData();
+//			phoneBook.printfullContactData();
 		}
 		else if (cmd == "EXIT" || cmd == "exit")
 			exit(1);
