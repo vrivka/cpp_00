@@ -12,7 +12,7 @@ void PhoneBook::setContactData() {
 
 static void printData(std::string const &str) {
 	if (str.size() > 10)
-		std::cout << str.substr(0, 9) <<  ".";
+		std::cout << str.substr(0, 9) << ".";
 	else
 		std::cout << std::setw(10) << str;
 }
@@ -58,8 +58,7 @@ void PhoneBook::printshortContactData() {
 	this->printfullContactData();
 }
 
-static int check_it_nums(char const *str)
-{
+static int check_it_nums(char const *str) {
 	for (size_t i = 0; i < strlen(str); i++) {
 		if (!isdigit(str[i]))
 			return 1;
@@ -99,7 +98,4 @@ void PhoneBook::printfullContactData() {
 	std::cout << "Contact with \x1b[32mID\x1b[0m: <" << id << "> not found" << std::endl;
 }
 
-PhoneBook::PhoneBook() {
-	this->IDcount = 1;
-	this->Index = 0;
-}
+PhoneBook::PhoneBook() : Index(0), IDcount(1) {}

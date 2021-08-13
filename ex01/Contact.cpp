@@ -39,7 +39,7 @@ void  Contact::setDarkestSecret() {
 		exit(0);
 }
 
-void Contact::setAll(){
+void Contact::setAll() {
 	this->setFirstName();
 	this->setLastName();
 	this->setNickName();
